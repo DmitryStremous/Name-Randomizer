@@ -5,11 +5,17 @@
       output = document.getElementById("output"),
       xhttp = "";
 
-  button.addEventListener("click", function(){
-    output.innerHTML = randomizer();
-  });
+  if (document.addEventListener) {
+    button.addEventListener("click", btnClick);
+  } else if (document.attachEvent) {                 // For IE 8 and earlier versions
+    button.attachEvent("onclick", btnClick);
+  }
 
-  xhttp = new XMLHttpRequest();
+  if (window.XMLHttpRequest) {
+    xhttp = new XMLHttpRequest();
+    } else {
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");  // For IE6, IE5
+  }
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       data = JSON.parse(xhttp.responseText);
@@ -18,6 +24,9 @@
   xhttp.open("GET", "data/data.json", true);
   xhttp.send();
 
+  function btnClick() {
+    output.innerHTML = randomizer();
+  }
   function getRandomIndex(arr) {
     return Math.floor(Math.random()*arr.length);
   }
