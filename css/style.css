@@ -1,0 +1,22 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  text-align: center;
+  font-size: 1.6em;
+  padding: 25px;
+  padding-top: 0;
+}
+h1 {
+  background-color: #E8E8E8;
+  color: firebrick;
+  margin: 0;
+  padding: 25px;
+  border-radius: 5px;
+}
+#btn {
+  padding: 10px;
+  margin: 25px auto;
+  font-size: 1em;
+}
